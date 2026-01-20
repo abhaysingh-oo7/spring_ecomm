@@ -1,10 +1,11 @@
 package com.ecom.demo.repository;
 
-
 import com.ecom.demo.model.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface OrderRepository extends MongoRepository<Order, String> {
-}
+import java.util.List;
 
-//thsi saves orders and find orders by ID
+public interface OrderRepository extends MongoRepository<Order, String> {
+
+    List<Order> findByUserId(String userId);
+}

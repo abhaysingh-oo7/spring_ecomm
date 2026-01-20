@@ -5,6 +5,7 @@ import com.ecom.demo.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -23,4 +24,9 @@ public class OrderController {
     public Order getOrderDetails(@PathVariable String orderId) {
         return orderService.getOrderById(orderId);
     }
+    @GetMapping("/user/{userId}")
+    public List<Order> getOrderHistoryForUser(@PathVariable String userId) {
+        return orderService.getOrdersByUser(userId);
+    }
+
 }
